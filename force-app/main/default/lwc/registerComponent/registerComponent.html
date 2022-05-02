@@ -1,0 +1,22 @@
+<template>
+    <div>
+        <lightning-radio-group 
+            name="radioGroup"
+            label="Choose a type of user"
+            options={options}
+            value={value}
+            onchange={handleChange}
+            type="radio"
+            required>
+        </lightning-radio-group>
+    </div>
+    <div>
+        <template if:true={userVal}>
+            <c-user-form-component></c-user-form-component>
+        </template>
+        <template if:true={artistVal}>
+            <c-artist-form-component></c-artist-form-component>
+        </template>
+    </div>
+    
+</template>
