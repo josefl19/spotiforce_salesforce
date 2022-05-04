@@ -1,3 +1,36 @@
 <template>
-    <p>Componente userForm</p>
+    <!-- Spinner for loading -->
+    <template if:true={showLoading}>
+        <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+    </template>
+
+    <article class="slds-card">
+        <lightning-card  variant="Narrow"  title="New user" icon-name="standard:user">
+            <div class="slds-card__body slds-card__body_inner">
+                <lightning-input type="text" label="First name" placeholder="First Name..." name="first-name" value={firstName} onchange={handleFirstNameChange} required></lightning-input>
+                <lightning-input type="text" label="Last name" placeholder="Last Name..." name="last-name" value={lastName} onchange={handleLastNameChange} required></lightning-input>
+                <lightning-input type="email" label="Email" placeholder="Email..." name="email" value={email} onkeyup={handleEmailChange} pattern="^[^@\s]+@[^@\s]+\.[^@\s]+$" oninvalid={onEmailInvalid} required></lightning-input>
+                <lightning-input type="text" label="Username" name="username" value={username} disabled required></lightning-input>
+                <lightning-input type="tel" label="Phone" placeholder="Phone..." name="phone" value={phone} onchange={handlePhoneChange} required></lightning-input>
+                <lightning-input type="password" label="Password" placeholder="Password..." name="password" value={password} onchange={handlePasswordChange} required></lightning-input>
+                    <span>Password must be Minimum eight characters, at least one letter, one number and one special character</span>
+                    <span>This field is required.</span>
+                <lightning-input type="password" label="Confirm Password" placeholder="Confirm Password..." value={confirmPassword} name="confirm-password" onchange={handleConfirmPasswordChange} required></lightning-input>
+                <br>
+                <div class="slds-form-element" slot="footer">
+                    <button class="slds-button slds-button_success" onclick={handleCreate}>Create Account</button>
+                </div>
+            </div>
+        </lightning-card>
+    </article>
+    
+    <lightning-card title="MiscGetUserId" icon-name="custom:custom19">
+        <div class="slds-m-around_medium">
+            <p>User Id:</p>
+            {userId}
+            {locale}
+            {currency}
+            {lang}
+        </div>
+    </lightning-card>
 </template>
