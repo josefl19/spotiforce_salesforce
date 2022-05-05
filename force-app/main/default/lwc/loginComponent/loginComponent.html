@@ -1,0 +1,14 @@
+<template>
+    <article class="slds-card">
+        <lightning-card  variant="Narrow"  title="New user" icon-name="standard:user">
+            <div class="slds-card__body slds-card__body_inner">
+                <lightning-input type="text" label="Username" placeholder="Username..." name="username" onchange={handleUserChange} required></lightning-input>
+                <lightning-input type="password" label="Password" placeholder="Password..." name="password" onchange={handlePasswordChange} required></lightning-input>
+                <br>
+                <div class="slds-form-element" slot="footer">
+                    <button class="slds-button slds-button_success" onclick={handleLogin}>Login</button>
+                </div>
+            </div>
+        </lightning-card>
+    </article>
+</template>
