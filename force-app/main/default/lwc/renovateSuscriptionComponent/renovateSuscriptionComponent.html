@@ -1,0 +1,25 @@
+<template>
+    <lightning-record-edit-form object-api-name='Account' record-id={idAccount.data}>
+        <lightning-messages></lightning-messages>
+        <lightning-input-field field-name="Name" class="slds-hide"></lightning-input-field>
+        <lightning-input-field field-name="Email__c" class="slds-hide"></lightning-input-field>
+        <lightning-input-field field-name="Date_of_Purchase__c" disabled></lightning-input-field>
+        <lightning-input-field field-name="Expired_Date__c" disabled></lightning-input-field>
+        <lightning-input-field field-name="Suscription_status__c"></lightning-input-field>
+        <div>
+            <template if:true={available.data}>
+                <lightning-button label="Renew subscription" type="submit" variant="brand" icon-name="utility:refresh" icon-position="right" onclick={handleClick}></lightning-button>
+            </template>
+        </div>
+    </lightning-record-edit-form>
+    <p>Boolean: {available.data}</p>
+    <!--p>Record: {recordId}</p>
+    <p>Prueba wire: {account.data}</p>
+    <p>Prueba wire Id: {idAccount.data}</p -->
+
+    <!--lightning-record-form 
+            object-api-name='Account'
+            record-id={idAccount.data}
+            fields={fieldsA}>
+        </lightning-record-form -->
+</template>

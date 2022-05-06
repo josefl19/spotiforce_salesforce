@@ -1,7 +1,18 @@
 <template>
-    <lightning-record-form 
-        object-api-name='Contact'
+    <!-- lightning-record-form 
+        object-api-name='User'
         record-id={recordId}
         fields={fields}>
-    </lightning-record-form>
+    </lightning-record-form -->
+    
+    <template onload={isUser} if:true={is_User} >
+        <p>Componente de usuario</p>
+    </template>
+
+    <template if:true={is_Artist}>
+        <p>Componente artista</p>
+    </template>
+
+    <c-renovate-suscription-component record-id={recordId}></c-renovate-suscription-component>
+
 </template>
